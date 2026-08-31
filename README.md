@@ -5,7 +5,8 @@ A C++ program that reads a heightmap file and renders it as a 3D wireframe lands
 
 ## Overview
 
-<img width="1594" height="927" alt="42_map_scrshot" src="https://github.com/user-attachments/assets/eb93fb54-a128-49dc-8b52-99676fb39409" />
+<img width="1594" height="888" alt="42_map_scrshot" src="https://github.com/user-attachments/assets/734bd3a3-071d-4e9d-ba8e-b3e23cd2d0b8" />
+
 
 This project takes a .fdf map file - a grid of numbers representing elevation at each point - and turns it into an isometric 3D wireframe. Rather than filling in solid surfaces, the landscape is represented entirely by outlining connections between neighboring points, similar to old-school vector graphics or topographic wireframe models.
 
