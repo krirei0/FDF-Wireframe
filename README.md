@@ -24,18 +24,15 @@ This project takes a .fdf map file - a grid of numbers representing elevation at
 
 
 ## How it works
-The rendering pipeline in main.cpp runs in stages:
+The rendering pipeline in `main.cpp` runs in several stages:
 
-Parse - ParseFdf() reads the map file into a grid of Point structs (x, y, z).
-Rotate - RotatePoint() applies a 3D rotation to the grid.
-Project - IsometricProjection() converts the rotated 3D points into 2D screen-space coordinates.
-Fit to window -
-FindBoundaries() finds the bounding box of the projected points.
-FindScaleFactor() computes how much to scale the model so it fits the window.
-ApplyScale() scales all points accordingly.
-FindCenter() and CalculateTranslation() work out how to center the scaled model in the window.
-ApplyTranslation() shifts all points to their final screen position.
-Render - DrawConnection() draws the wireframe lines between neighboring points, and DrawZ() adds elevation-based coloring, both via SDL2.
+1. **Parse** - `ParseFdf()` reads the map file into a grid of `Point` structs (`x`, `y`, `z`).
+2. **Rotate** - `RotatePoint()` applies 3D rotation to the point grid.
+3. **Project** - `IsometricProjection()` converts the 3D coordinates into 2D screen coordinates.
+4. **Fit to window** - `FindBoundaries()` determines the model's bounds and `FindScaleFactor()` calculates the appropriate scale.
+5. **Center** - `FindCenter()` and `CalculateTranslation()` calculate the translation needed to center the model.
+6. **Translate** - `ApplyTranslation()` moves the points to their final screen positions.
+7. **Render** - `DrawConnection()` draws the wireframe and `DrawZ()` adds elevation-based coloring using SDL2.
 
 
 ## Requirements
