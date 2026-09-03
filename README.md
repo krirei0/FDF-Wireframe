@@ -39,8 +39,9 @@ The rendering pipeline in `main.cpp` runs in several stages:
 C++ compiler (C++11 or later)
 SDL2 development libraries
 
-## Build & Run
 
+
+## Build & Run
 Clone the repository:
 
 ```bash
