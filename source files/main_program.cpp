@@ -8,10 +8,16 @@
 
 int main(int argc, char* args[])
 {
-    double windowWidth = 640;
-    double windowHeight = 480;
+    if (argc < 2)
+    {
+        std::cerr << "Usage: " << args[0] << " <path_to_fdf_file>" << std::endl;
+        return 1;
+    }
 
-    std::vector<std::vector<Point>> worldPoints = ParseFdf("C:\\Users\\krire\\OneDrive\\Desktop\\cpp\\42.fdf");
+    double windowWidth = 1500;
+    double windowHeight = 750;
+
+    std::vector<std::vector<Point>> worldPoints = ParseFdf(args[1]);
     std::vector<std::vector<RotatedPoint>> rotatedPoint = RotatePoint(worldPoints, 0, 0, 0);
     std::vector<std::vector<ScrCoordinates>> isometricProjectionPoints = IsometricProjection(rotatedPoint);
 
@@ -28,7 +34,7 @@ int main(int argc, char* args[])
     SDL_Window* window = SDL_CreateWindow
     (
         "Render Example", SDL_WINDOWPOS_CENTERED,
-        SDL_WINDOWPOS_CENTERED, 640, 480,
+        SDL_WINDOWPOS_CENTERED, windowWidth, windowHeight,
         SDL_WINDOW_SHOWN
     );
 
